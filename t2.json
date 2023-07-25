@@ -1,0 +1,287 @@
+{
+    "data": [
+      {
+        "flight_date": "2023-07-19",
+        "flight_status": "scheduled",
+        "departure": {
+          "airport": "Kastrup",
+          "timezone": "Europe/Copenhagen",
+          "iata": "CPH",
+          "icao": "EKCH",
+          "terminal": "3",
+          "gate": null,
+          "delay": null,
+          "scheduled": "2023-07-19T10:00:00+00:00",
+          "estimated": "2023-07-19T10:00:00+00:00",
+          "actual": null,
+          "estimated_runway": null,
+          "actual_runway": null
+        },
+        "arrival": {
+          "airport": "Bornholm",
+          "timezone": "Europe/Copenhagen",
+          "iata": "RNN",
+          "icao": "EKRN",
+          "terminal": null,
+          "gate": null,
+          "baggage": null,
+          "delay": null,
+          "scheduled": "2023-07-19T10:40:00+00:00",
+          "estimated": "2023-07-19T10:40:00+00:00",
+          "actual": null,
+          "estimated_runway": null,
+          "actual_runway": null
+        },
+        "airline": {
+          "name": "Danish Air",
+          "iata": "DX",
+          "icao": "DTR"
+        },
+        "flight": {
+          "number": "38",
+          "iata": "DX38",
+          "icao": "DTR38",
+          "codeshared": null
+        },
+        "aircraft": null,
+        "live": null
+      },
+      {
+        "flight_date": "2023-07-19",
+        "flight_status": "scheduled",
+        "departure": {
+          "airport": "Kastrup",
+          "timezone": "Europe/Copenhagen",
+          "iata": "CPH",
+          "icao": "EKCH",
+          "terminal": "2",
+          "gate": "A6",
+          "delay": null,
+          "scheduled": "2023-07-19T10:00:00+00:00",
+          "estimated": "2023-07-19T10:00:00+00:00",
+          "actual": null,
+          "estimated_runway": null,
+          "actual_runway": null
+        },
+        "arrival": {
+          "airport": "Arlanda",
+          "timezone": "Europe/Stockholm",
+          "iata": "ARN",
+          "icao": "ESSA",
+          "terminal": "5",
+          "gate": null,
+          "baggage": "6",
+          "delay": null,
+          "scheduled": "2023-07-19T11:10:00+00:00",
+          "estimated": "2023-07-19T11:10:00+00:00",
+          "actual": null,
+          "estimated_runway": null,
+          "actual_runway": null
+        },
+        "airline": {
+          "name": "Norwegian",
+          "iata": "DY",
+          "icao": "NOZ"
+        },
+        "flight": {
+          "number": "3196",
+          "iata": "DY3196",
+          "icao": "NOZ3196",
+          "codeshared": null
+        },
+        "aircraft": null,
+        "live": null
+      },
+      {
+        "flight_date": "2023-07-19",
+        "flight_status": "scheduled",
+        "departure": {
+          "airport": "Kastrup",
+          "timezone": "Europe/Copenhagen",
+          "iata": "CPH",
+          "icao": "EKCH",
+          "terminal": "2",
+          "gate": null,
+          "delay": null,
+          "scheduled": "2023-07-19T09:55:00+00:00",
+          "estimated": "2023-07-19T09:55:00+00:00",
+          "actual": null,
+          "estimated_runway": null,
+          "actual_runway": null
+        },
+        "arrival": {
+          "airport": "Charles De Gaulle",
+          "timezone": "Europe/Paris",
+          "iata": "CDG",
+          "icao": "LFPG",
+          "terminal": "2F",
+          "gate": null,
+          "baggage": "22",
+          "delay": null,
+          "scheduled": "2023-07-19T11:55:00+00:00",
+          "estimated": "2023-07-19T11:55:00+00:00",
+          "actual": null,
+          "estimated_runway": null,
+          "actual_runway": null
+        },
+        "airline": {
+          "name": "Air France",
+          "iata": "AF",
+          "icao": "AFR"
+        },
+        "flight": {
+          "number": "1751",
+          "iata": "AF1751",
+          "icao": "AFR1751",
+          "codeshared": null
+        },
+        "aircraft": null,
+        "live": null
+      },
+      {
+        "flight_date": "2023-07-25",
+        "flight_status": "scheduled",
+        "departure": {
+          "airport": "Piarco International",
+          "timezone": "America/Port_of_Spain",
+          "iata": "POS",
+          "icao": "TTPP",
+          "terminal": null,
+          "gate": "6",
+          "delay": null,
+          "scheduled": "2023-07-25T03:39:00+00:00",
+          "estimated": "2023-07-25T03:39:00+00:00",
+          "actual": null,
+          "estimated_runway": null,
+          "actual_runway": null
+        },
+        "arrival": {
+          "airport": "Tocumen International",
+          "timezone": "America/Panama",
+          "iata": "PTY",
+          "icao": "MPTO",
+          "terminal": null,
+          "gate": null,
+          "baggage": null,
+          "delay": null,
+          "scheduled": "2023-07-25T05:52:00+00:00",
+          "estimated": "2023-07-25T05:52:00+00:00",
+          "actual": null,
+          "estimated_runway": null,
+          "actual_runway": null
+        },
+        "airline": {
+          "name": "Copa Airlines",
+          "iata": "CM",
+          "icao": "CMP"
+        },
+        "flight": {
+          "number": "315",
+          "iata": "CM315",
+          "icao": "CMP315",
+          "codeshared": null
+        },
+        "aircraft": null,
+        "live": null
+      },
+      {
+        "flight_date": "2023-07-25",
+        "flight_status": "scheduled",
+        "departure": {
+          "airport": "Piarco International",
+          "timezone": "America/Port_of_Spain",
+          "iata": "POS",
+          "icao": "TTPP",
+          "terminal": null,
+          "gate": "6",
+          "delay": null,
+          "scheduled": "2023-07-25T03:39:00+00:00",
+          "estimated": "2023-07-25T03:39:00+00:00",
+          "actual": null,
+          "estimated_runway": null,
+          "actual_runway": null
+        },
+        "arrival": {
+          "airport": "Tocumen International",
+          "timezone": "America/Panama",
+          "iata": "PTY",
+          "icao": "MPTO",
+          "terminal": null,
+          "gate": null,
+          "baggage": null,
+          "delay": null,
+          "scheduled": "2023-07-25T05:52:00+00:00",
+          "estimated": "2023-07-25T05:52:00+00:00",
+          "actual": null,
+          "estimated_runway": null,
+          "actual_runway": null
+        },
+        "airline": {
+          "name": "Copa Airlines",
+          "iata": "CM",
+          "icao": "CMP"
+        },
+        "flight": {
+          "number": "315",
+          "iata": "CM315",
+          "icao": "CMP315",
+          "codeshared": null
+        },
+        "aircraft": null,
+        "live": null
+      },
+      {
+        "flight_date": "2023-07-25",
+        "flight_status": "scheduled",
+        "departure": {
+          "airport": "Piarco International",
+          "timezone": "America/Port_of_Spain",
+          "iata": "POS",
+          "icao": "TTPP",
+          "terminal": null,
+          "gate": "6",
+          "delay": null,
+          "scheduled": "2023-07-25T03:39:00+00:00",
+          "estimated": "2023-07-25T03:39:00+00:00",
+          "actual": null,
+          "estimated_runway": null,
+          "actual_runway": null
+        },
+        "arrival": {
+          "airport": "Tocumen International",
+          "timezone": "America/Panama",
+          "iata": "PTY",
+          "icao": "MPTO",
+          "terminal": null,
+          "gate": null,
+          "baggage": null,
+          "delay": null,
+          "scheduled": "2023-07-25T05:52:00+00:00",
+          "estimated": "2023-07-25T05:52:00+00:00",
+          "actual": null,
+          "estimated_runway": null,
+          "actual_runway": null
+        },
+        "airline": {
+          "name": "SA AVIANCA",
+          "iata": "AV",
+          "icao": "AVA"
+        },
+        "flight": {
+          "number": "6704",
+          "iata": "AV6704",
+          "icao": "AVA6704",
+          "codeshared": {
+            "airline_name": "copa airlines",
+            "airline_iata": "cm",
+            "airline_icao": "cmp",
+            "flight_number": "315",
+            "flight_iata": "cm315",
+            "flight_icao": "cmp315"
+          }
+        },
+        "aircraft": null,
+        "live": null
+      }
+    ]
+}
