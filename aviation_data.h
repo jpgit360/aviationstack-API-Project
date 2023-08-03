@@ -51,11 +51,10 @@ void searchByAirline(std::string);
 void searchByAirport(std::string);
 
 // Define mutex objects to protect shared variables
-std::mutex airline_mutex;
-std::mutex airport_mutex;
-
-std::unordered_multimap<std::string, Flight_Data> airline_multimap;
-std::unordered_multimap<std::string, Flight_Data> airport_multimap;
+extern std::mutex airline_mutex;
+extern std::mutex airport_mutex;
+extern std::unordered_multimap<std::string, Flight_Data> airline_multimap;
+extern std::unordered_multimap<std::string, Flight_Data> airport_multimap;
 
 
 #endif

@@ -1,22 +1,8 @@
 #include "aviation_data.h"
-
-int main() {
-    std::string jsonFile = "stresstest.json";
-    Json::Value jsonData = readJsonFile(jsonFile);
-
-    auto start_time = std::chrono::high_resolution_clock::now();
-    loadData(jsonData);
-    auto curr_time = std::chrono::high_resolution_clock::now();
-    auto wall_clock = std::chrono::duration_cast<std::chrono::duration<double>> (curr_time - start_time);
-    std::cout << "load took " << wall_clock.count() << " seconds" << std::endl;
-
-    //printUmm(airport_multimap);
-    //printUmm(airline_multimap);
-    //searchByAirline("SAS");
-    //searchByAirport("Sydney Kingsford Smith Airport");
-
-    return 0;
-}
+std::mutex airline_mutex;
+std::mutex airport_mutex;
+std::unordered_multimap<std::string, Flight_Data> airline_multimap;
+std::unordered_multimap<std::string, Flight_Data> airport_multimap;
 
 Json::Value readJsonFile(std::string fileName) {
     std::ifstream file(fileName);

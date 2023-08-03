@@ -2,7 +2,7 @@ CXX := g++
 CXXFLAGS := -Wall -Wextra -std=c++11 -fopenmp
 LIBS := -ljsoncpp
 
-SRC_FILES := aviation_data.cpp
+SRC_FILES := main.cpp aviation_data.cpp ui.cpp
 OBJECTS := $(SRC_FILES:.cpp=.o)
 EXECUTABLE := output
 
