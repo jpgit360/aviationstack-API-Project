@@ -1,5 +1,5 @@
 CXX := g++
-CXXFLAGS := -Wall -Wextra -std=c++11
+CXXFLAGS := -Wall -Wextra -std=c++11 -fopenmp
 LIBS := -ljsoncpp
 
 SRC_FILES := aviation_data.cpp

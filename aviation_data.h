@@ -5,7 +5,9 @@
 #include <chrono>
 #include <iostream>
 #include <fstream>
-
+//multithreading libraries
+#include <omp.h>
+#include <mutex>
 enum Airport_Event {
     ARRIVAL,
     DEPARTURE
@@ -41,11 +43,16 @@ struct Flight_Data {
 };
 
 // function headers
+Json::Value readJsonFile(std::string fileName);
 void loadData(Json::Value jsonData);
 std::string jsonValueToString(Json::Value jsonData);
 void printUmm(std::unordered_multimap<std::string, Flight_Data> umm);
 void searchByAirline(std::string);
 void searchByAirport(std::string);
+
+// Define mutex objects to protect shared variables
+std::mutex airline_mutex;
+std::mutex airport_mutex;
 
 std::unordered_multimap<std::string, Flight_Data> airline_multimap;
 std::unordered_multimap<std::string, Flight_Data> airport_multimap;

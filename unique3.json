@@ -1,4 +1,10 @@
 {
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "count": 100,
+    "total": 443995
+  },
   "data": [
     {
       "flight_date": "2023-07-25",

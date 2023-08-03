@@ -2,8 +2,8 @@ import json
 import csv
 import os
 
-all_data_file = "t1.json"
-ingest_data_file = "t2.json"
+all_data_file = "all_data.json"
+ingest_data_file = "ingest.json"
 key_data_file = "keys.csv"
 
 if os.path.getsize(all_data_file) == 0:

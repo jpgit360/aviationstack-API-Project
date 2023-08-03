@@ -1,13 +1,8 @@
 #include "aviation_data.h"
 
 int main() {
-    std::ifstream file("sample.json");
-    
-    Json::Value jsonData; // create json object
-
-    // parse the json file into json data object
-    file >> jsonData;
-    file.close();
+    std::string jsonFile = "stresstest.json";
+    Json::Value jsonData = readJsonFile(jsonFile);
 
     auto start_time = std::chrono::high_resolution_clock::now();
     loadData(jsonData);
@@ -18,14 +13,27 @@ int main() {
     //printUmm(airport_multimap);
     //printUmm(airline_multimap);
     //searchByAirline("SAS");
-    searchByAirport("Sydney Kingsford Smith Airport");
+    //searchByAirport("Sydney Kingsford Smith Airport");
 
     return 0;
 }
 
+Json::Value readJsonFile(std::string fileName) {
+    std::ifstream file(fileName);
+    Json::Value jsonData; // create json object
+
+    // parse the json file into json data object
+    file >> jsonData;
+    file.close();
+    return jsonData;
+}
+
+// O(n) time, depends on size of jsonData
 void loadData(Json::Value jsonData) {
     int data_size = jsonData["data"].size();
 
+    //multithread load
+    #pragma omp parallel for
     for(int i = 0; i < data_size; i++) {
         Json::Value data_elem = jsonData["data"][i];
         Airport_Data departure_data;
@@ -70,10 +78,12 @@ void loadData(Json::Value jsonData) {
         flight_data.arrival_data = arrival_data;
 
         // insert to airline map
+        std::lock_guard<std::mutex> airline_lock(airline_mutex);
         airline_multimap.insert(std::make_pair(flight_data.airline_name, flight_data));
 
         // insert to airport map, will contain both departure and arrival airports
         // space complexity O(2n) -> O(n)
+        std::lock_guard<std::mutex> airport_lock(airport_mutex);
         airport_multimap.insert(std::make_pair(flight_data.departure_data.airport, flight_data));
         airport_multimap.insert(std::make_pair(flight_data.arrival_data.airport, flight_data));
     }
@@ -115,6 +125,6 @@ void searchByAirline(std::string airline_input) {
 void searchByAirport(std::string airport_input) {
     auto range = airport_multimap.equal_range(airport_input);
     for(auto it = range.first; it != range.second; it++) {
-        std::cout << it->first << " " << it->second.flight_number << std::endl;
+        std::cout << it->first << " " << it->second.departure_data.type << std::endl;
     }
 }
