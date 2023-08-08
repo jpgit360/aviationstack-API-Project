@@ -13,7 +13,7 @@ api_response = api_result.json()'''
 
 #test code without having to make another api call
 #-------------------------------------------------
-with open("fakeapi.json" ,"r") as json_file:
+with open("data_ingestion/fakeapi.json" ,"r") as json_file:
     api_response = json.load(json_file)
 #-------------------------------------------------
 

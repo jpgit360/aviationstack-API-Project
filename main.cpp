@@ -1,5 +1,4 @@
 #include "aviation_data.h"
-#include "ui.h"
 
 int main() {
     std::string jsonFile = "all_data.json";
@@ -11,11 +10,9 @@ int main() {
     auto wall_clock = std::chrono::duration_cast<std::chrono::duration<double>> (curr_time - start_time);
     std::cout << "load took " << wall_clock.count() << " seconds" << std::endl; 
 
-
-    userInput();
     //printUmm(airport_multimap);
     //printUmm(airline_multimap);
-    searchByAirline("SAS");
+    //searchByAirline("SAS");
     //searchByAirport("Sydney Kingsford Smith Airport");
 
     return 0;

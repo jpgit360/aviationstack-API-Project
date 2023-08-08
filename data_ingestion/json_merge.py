@@ -3,8 +3,8 @@ import csv
 import os
 
 all_data_file = "all_data.json"
-ingest_data_file = "ingest.json"
-key_data_file = "keys.csv"
+ingest_data_file = "data_ingestion/ingest.json"
+key_data_file = "data_ingestion/keys.csv"
 
 if os.path.getsize(all_data_file) == 0:
     print(f"{all_data_file} is empty.")
