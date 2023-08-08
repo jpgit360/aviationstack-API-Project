@@ -19,7 +19,7 @@ void loadData(Json::Value jsonData) {
     int data_size = jsonData["data"].size();
 
     //multithread load
-    #pragma omp parallel for
+#pragma omp parallel for
     for(int i = 0; i < data_size; i++) {
         Json::Value data_elem = jsonData["data"][i];
         Airport_Data departure_data;
@@ -38,7 +38,7 @@ void loadData(Json::Value jsonData) {
         departure_data.estimated_runway = jsonValueToString(data_elem["departure"]["estimated_runway"]);
         departure_data.actual_runway = jsonValueToString(data_elem["departure"]["actual_runway"]);
         departure_data.type = DEPARTURE;
-        
+
         arrival_data.airport = jsonValueToString(data_elem["arrival"]["airport"]);
         arrival_data.iata = jsonValueToString(data_elem["arrival"]["iata"]);
         arrival_data.icao = jsonValueToString(data_elem["arrival"]["icao"]);
@@ -95,7 +95,7 @@ void printUmm(std::unordered_multimap<std::string, Flight_Data> umm) {
     auto it = umm.begin(); // begin() returns iterator to first element of map
     for (; it != umm.end(); it++){
         std::cout << "<" << it->first << ", " << it->second.flight_number
-             << ">  ";
+                  << ">  ";
         std::cout << std::endl;
     }
 }

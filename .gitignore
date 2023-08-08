@@ -3,3 +3,4 @@ __pycache__/
 .vscode/
 *.exe
 *.o
+ui_and_backend/build-aviation_ui-Desktop-Debug/
