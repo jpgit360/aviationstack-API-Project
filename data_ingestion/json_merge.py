@@ -2,9 +2,9 @@ import json
 import csv
 import os
 
-all_data_file = "all_data.json"
-ingest_data_file = "data_ingestion/ingest.json"
-key_data_file = "data_ingestion/keys.csv"
+all_data_file = "C:/Users/jfpth/OneDrive/Desktop/aviationstack_api_project/all_data.json"
+ingest_data_file = "C:/Users/jfpth/OneDrive/Desktop/aviationstack_api_project/data_ingestion/ingest.json"
+key_data_file = "C:/Users/jfpth/OneDrive/Desktop/aviationstack_api_project/data_ingestion/keys.csv"
 
 if os.path.getsize(all_data_file) == 0:
     print(f"{all_data_file} is empty.")

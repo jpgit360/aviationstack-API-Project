@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
     //printUmm(airport_multimap);
     //printUmm(airline_multimap);
-    searchByAirline("SAS");
+    //searchByAirline("SAS");
     //searchByAirport("Sydney Kingsford Smith Airport");
 
     return a.exec();

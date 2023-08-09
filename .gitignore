@@ -4,3 +4,4 @@ __pycache__/
 *.exe
 *.o
 ui_and_backend/build-aviation_ui-Desktop-Debug/
+logfile.txt
