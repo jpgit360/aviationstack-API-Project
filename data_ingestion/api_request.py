@@ -10,8 +10,8 @@ api_result = requests.get('http://api.aviationstack.com/v1/flights', params)
 
 api_response = api_result.json()
 
-fakeapi_path = "C:/Users/jfpth/OneDrive/Desktop/aviationstack_api_project/data_ingestion/fakeapi.json"
-ingest_path =  "C:/Users/jfpth/OneDrive/Desktop/aviationstack_api_project/data_ingestion/ingest.json"
+fakeapi_path = "../store/fakeapi.json"
+ingest_path =  "../store/ingest.json"
 
 '''#test code without having to make another api call
 #-------------------------------------------------

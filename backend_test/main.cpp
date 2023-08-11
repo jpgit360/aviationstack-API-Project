@@ -1,7 +1,7 @@
 #include "aviation_data.h"
 
 int main() {
-    std::string jsonFile = "C:/Users/jfpth/OneDrive/Desktop/aviationstack_api_project/all_data.json";
+    std::string jsonFile = "../store/all_data.json";
     Json::Value jsonData = readJsonFile(jsonFile);
 
     auto start_time = std::chrono::high_resolution_clock::now();

@@ -9,9 +9,10 @@ current_datetime = datetime.now()
 # Format the date and time as a string
 formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
 
-all_data_file = "C:/Users/jfpth/OneDrive/Desktop/aviationstack_api_project/all_data.json"
-ingest_data_file = "C:/Users/jfpth/OneDrive/Desktop/aviationstack_api_project/data_ingestion/ingest.json"
-key_data_file = "C:/Users/jfpth/OneDrive/Desktop/aviationstack_api_project/data_ingestion/keys.csv"
+all_data_file = "../store/all_data.json"
+ingest_data_file = "../store/ingest.json"
+key_data_file = "../store/keys.csv"
+tracker_file = "../store/tracker.txt"
 
 if os.path.getsize(all_data_file) == 0:
     print(f"{all_data_file} is empty.")
@@ -35,10 +36,6 @@ else:
             ingested_json_dict = json.load(ingested_json_file)
     except json.JSONDecodeError as e:
         print(f"Error loading json: {e}")
-    
-#test code
-#test = ingested_json_dict["data"][0]
-#master_json_dict["data"].append(test)
 
 #create vector to store keys
 ingest_keys = []
@@ -70,7 +67,7 @@ for i in range(len(ingest_keys)):
         new_data = ingested_json_dict["data"][i]
         master_json_dict["data"].append(new_data)
 
-with open('tracker.txt', 'a') as file:
+with open(tracker_file, 'a') as file:
     file.write(f"Current date and time: {formatted_datetime}\n")
     file.write(f"ingest keys: \n{ingest_keys}\n")
 
@@ -78,7 +75,7 @@ print("ingest keys: ", ingest_keys)
 # pop None values from ingest_keys
 ingest_keys = list(filter(None, ingest_keys))
 
-with open('tracker.txt', 'a') as file:
+with open(tracker_file, 'a') as file:
     file.write(f"ingest keys after filter: \n{ingest_keys}\n")
 
 print(f"ingest keys after filter: {ingest_keys}")
