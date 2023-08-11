@@ -1,6 +1,13 @@
 import json
 import csv
 import os
+from datetime import datetime
+
+# Get the current date and time
+current_datetime = datetime.now()
+
+# Format the date and time as a string
+formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
 
 all_data_file = "C:/Users/jfpth/OneDrive/Desktop/aviationstack_api_project/all_data.json"
 ingest_data_file = "C:/Users/jfpth/OneDrive/Desktop/aviationstack_api_project/data_ingestion/ingest.json"
@@ -63,10 +70,18 @@ for i in range(len(ingest_keys)):
         new_data = ingested_json_dict["data"][i]
         master_json_dict["data"].append(new_data)
 
+with open('tracker.txt', 'a') as file:
+    file.write(f"Current date and time: {formatted_datetime}\n")
+    file.write(f"ingest keys: \n{ingest_keys}\n")
+
 print("ingest keys: ", ingest_keys)
 # pop None values from ingest_keys
 ingest_keys = list(filter(None, ingest_keys))
-print("ingest keys after filter: ", ingest_keys)
+
+with open('tracker.txt', 'a') as file:
+    file.write(f"ingest keys after filter: \n{ingest_keys}\n")
+
+print(f"ingest keys after filter: {ingest_keys}")
 
 # append updated keys to keys.csv
 updated_keys = all_keys + ingest_keys
