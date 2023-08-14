@@ -1,8 +1,8 @@
 CXX := g++
-CXXFLAGS := -Wall -Wextra -std=c++11 -fopenmp
+CXXFLAGS := -Wall -Wextra -std=c++11 -fopenmp -g
 LIBS := -ljsoncpp
 
-SRC_FILES := main.cpp aviation_data.cpp
+SRC_FILES := main.cpp aviation_data.cpp trie.cpp
 OBJECTS := $(SRC_FILES:.cpp=.o)
 EXECUTABLE := output
 
