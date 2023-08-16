@@ -5,7 +5,8 @@ int main() {
     Trie* test = new Trie();
     
     test->insert("race");
-    test->insert("racecar");
+    TrieNode* bruh = test->searchHelper("rb");
+    //test->insert("racecar");
     delete test; 
 
 
@@ -18,7 +19,7 @@ int main() {
     auto curr_time = std::chrono::high_resolution_clock::now();
     auto wall_clock = std::chrono::duration_cast<std::chrono::duration<double>> (curr_time - start_time);
     std::cout << "load took " << wall_clock.count() << " seconds" << std::endl;
- */
+    */
     //printUmm(airport_multimap);
     //printUmm(airline_multimap);
     //searchByAirline("SAS");

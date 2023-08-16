@@ -11,9 +11,9 @@ public:
     char getData();
     bool getIsEnd();
     void setIsEnd(bool val);
-    std::map<char, TrieNode*> children;
-    std::map<char, TrieNode*> getChildren();
+    std::map<char, TrieNode*>& getChildren();
 private:
+    std::map<char, TrieNode*> children;
     char data;
     bool isEnd;
     
@@ -24,7 +24,8 @@ public:
     Trie();
     ~Trie();
     bool insert(std::string word);
-    bool search(std::string word);
+    TrieNode* searchHelper(std::string partialWord);
+    bool autocomplete(std::string partialWord);
 private:
     TrieNode* root;
 };
