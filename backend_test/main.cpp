@@ -4,12 +4,34 @@
 int main() {
     Trie* test = new Trie();
     
-    test->insert("race");
-    TrieNode* bruh = test->searchHelper("rb");
-    //test->insert("racecar");
+    /* test->insert("bear");
+    test->insert("bell");
+    test->insert("bid");
+    test->insert("belo");
+    test->insert("beads"); */
+    
+    test->insert("apple");
+    test->insert("apricot");
+    test->insert("artichoke");
+    test->insert("ant");
+    test->insert("airplane");
+    test->insert("almond");
+    test->insert("armadillo");
+    test->insert("alligator");
+    test->insert("asparagus");
+
+    std::string word;
+    std::cout << "Enter word to autocomplete: ";
+    std::cin >> word;
+    test->autocomplete(word);
+
+    //print out vector of autocomplete words
+    std::vector<std::string> vec = test->getAutocompleteWords();
+    for(std::vector<std::string>::iterator it = vec.begin(); it != vec.end(); it++) {
+        std::cout << *it << std::endl;
+    }
+
     delete test; 
-
-
 
     /*std::string jsonFile = "../store/all_data.json";
     Json::Value jsonData = readJsonFile(jsonFile);

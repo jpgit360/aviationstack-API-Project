@@ -2,6 +2,7 @@
 #define TRIE_GUARD
 
 #include <iostream>
+#include <vector>
 #include <map>
 
 class TrieNode {
@@ -26,8 +27,11 @@ public:
     bool insert(std::string word);
     TrieNode* searchHelper(std::string partialWord);
     bool autocomplete(std::string partialWord);
+    void recursiveTraverse(TrieNode* node, std::string word="");
+    std::vector<std::string> getAutocompleteWords();
 private:
     TrieNode* root;
+    std::vector<std::string> autocompleteWords;
 };
 
 #endif

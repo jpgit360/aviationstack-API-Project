@@ -1,5 +1,11 @@
 #include "trie.h"
 
+/* 
+------------------------------------------------------------------
+TrieNode Methods
+------------------------------------------------------------------
+*/
+
 TrieNode::TrieNode(char letter) {
     data = letter;
     isEnd = false;
@@ -21,6 +27,11 @@ std::map<char, TrieNode*>& TrieNode::getChildren() { return children; }
 // setters
 void TrieNode::setIsEnd(bool val) { isEnd = val; }
 
+/* 
+------------------------------------------------------------------
+Trie Methods
+------------------------------------------------------------------
+*/
 
 Trie::Trie() {
     root = new TrieNode(' ');
@@ -52,6 +63,7 @@ bool Trie::insert(std::string word) {
     return true;
 }
 
+//finds the node that corresponds to the last letter of partialWord
 TrieNode* Trie::searchHelper(std::string partialWord) {
     TrieNode* node = root;
     for (auto it = partialWord.begin(); it != partialWord.end(); it++) {
@@ -70,16 +82,31 @@ TrieNode* Trie::searchHelper(std::string partialWord) {
     return node;
 }
 
-bool Trie::autocomplete(std::string partialWord) {
-
-    //search for end letter of partial word
-    //at that node traverse inorder through trie and append letters to array
-    // if find isEnd is true, append array to a vector
-    // continue looping until children is empty
-    
-    TrieNode startingNode = *searchHelper(partialWord);
-
-
-    
+//append to autocompleted word list based on partial string
+bool Trie::autocomplete(std::string partialWord) {    
+    TrieNode* startingNodePtr = searchHelper(partialWord);
+    if(startingNodePtr != nullptr) { recursiveTraverse(startingNodePtr, partialWord); }
+    else { return false; }
     return true;
 }
+
+void Trie::recursiveTraverse(TrieNode* node, std::string currentString) {
+    //check if reached end of word
+    if(node->getIsEnd()) {
+        //append string to vector of autocompleted words
+        autocompleteWords.push_back(currentString);
+    }
+
+    std::map<char, TrieNode *> childrenMap = node->getChildren();
+    
+    //loop through children nodes
+    for(auto it = childrenMap.begin(); it != childrenMap.end(); it++) {
+        TrieNode* child = it->second;
+        currentString += child->getData();
+        recursiveTraverse(child, currentString);
+        currentString.pop_back(); //while going back up trie, pop the corresponding letter
+    }
+    return;
+}
+
+std::vector<std::string> Trie::getAutocompleteWords() { return autocompleteWords; }
