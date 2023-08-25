@@ -6,6 +6,8 @@
 #include <chrono>
 #include <iostream>
 #include <fstream>
+#include <algorithm>
+#include "trie.h"
 //multithreading libraries
 #include <omp.h>
 #include <mutex>
@@ -47,6 +49,10 @@ struct Flight_Data {
 Json::Value readJsonFile(std::string fileName);
 void loadData(Json::Value jsonData);
 std::string jsonValueToString(Json::Value jsonData);
+void insertToTrie(std::string airport_name, 
+    std::string departure_airport, 
+    std::string arrival_airport);
+std::string transformString(std::string word);
 void printUmm(std::unordered_multimap<std::string, Flight_Data> umm);
 void searchByAirline(std::string);
 void searchByAirport(std::string);
@@ -56,6 +62,6 @@ extern std::mutex airline_mutex;
 extern std::mutex airport_mutex;
 extern std::unordered_multimap<std::string, Flight_Data> airline_multimap;
 extern std::unordered_multimap<std::string, Flight_Data> airport_multimap;
-
+extern Trie word_trie;
 
 #endif

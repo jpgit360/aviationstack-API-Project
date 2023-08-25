@@ -34,7 +34,7 @@ Trie Methods
 */
 
 Trie::Trie() {
-    root = new TrieNode(' ');
+    root = new TrieNode('\0');
 }
 
 Trie::~Trie() {

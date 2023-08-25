@@ -3,6 +3,7 @@ std::mutex airline_mutex;
 std::mutex airport_mutex;
 std::unordered_multimap<std::string, Flight_Data> airline_multimap;
 std::unordered_multimap<std::string, Flight_Data> airport_multimap;
+Trie word_trie;
 
 Json::Value readJsonFile(std::string fileName) {
     std::ifstream file(fileName);
@@ -63,6 +64,11 @@ void loadData(Json::Value jsonData) {
         flight_data.departure_data = departure_data;
         flight_data.arrival_data = arrival_data;
 
+        insertToTrie(flight_data.airline_name, 
+            flight_data.departure_data.airport, 
+            flight_data.arrival_data.airport
+        );
+
         // insert to airline map
         std::lock_guard<std::mutex> airline_lock(airline_mutex);
         airline_multimap.insert(std::make_pair(flight_data.airline_name, flight_data));
@@ -89,6 +95,27 @@ std::string jsonValueToString(Json::Value jsonData) {
     }
     return jsonString;
 }
+
+void insertToTrie(std::string airport_name, 
+    std::string departure_airport, 
+    std::string arrival_airport) {
+
+    // insert transformed airline name, departure airport name, arrival airport name to trie
+    // transformed meaning, no spaces, all lower case, etc..
+    word_trie.insert(transformString(airport_name));
+    word_trie.insert(transformString(departure_airport));
+    word_trie.insert(transformString(arrival_airport));
+}
+
+std::string transformString(std::string word) {
+    //remove uppercase
+    transform(word.begin(), word.end(), word.begin(), ::tolower);
+    //remove spaces
+    std::string::iterator end_pos = std::remove(word.begin(), word.end(), ' ');
+    word.erase(end_pos, word.end());
+    return word;
+}
+
 
 // Utility function to print unordered_multimap
 void printUmm(std::unordered_multimap<std::string, Flight_Data> umm) {
