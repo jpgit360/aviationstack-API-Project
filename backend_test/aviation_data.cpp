@@ -71,13 +71,13 @@ void loadData(Json::Value jsonData) {
 
         // insert to airline map
         std::lock_guard<std::mutex> airline_lock(airline_mutex);
-        airline_multimap.insert(std::make_pair(flight_data.airline_name, flight_data));
+        airline_multimap.insert(std::make_pair(transformString(flight_data.airline_name), flight_data));
 
         // insert to airport map, will contain both departure and arrival airports
         // space complexity O(2n) -> O(n)
         std::lock_guard<std::mutex> airport_lock(airport_mutex);
-        airport_multimap.insert(std::make_pair(flight_data.departure_data.airport, flight_data));
-        airport_multimap.insert(std::make_pair(flight_data.arrival_data.airport, flight_data));
+        airport_multimap.insert(std::make_pair(transformString(flight_data.departure_data.airport), flight_data));
+        airport_multimap.insert(std::make_pair(transformString(flight_data.arrival_data.airport), flight_data));
     }
 }
 
@@ -130,14 +130,28 @@ void printUmm(std::unordered_multimap<std::string, Flight_Data> umm) {
 void searchByAirline(std::string airline_input) {
     // multi element search
     auto range = airline_multimap.equal_range(airline_input);
+    int result_num = 1;
     for(auto it = range.first; it != range.second; it++) {
-        std::cout << it->first << " " << it->second.arrival_data.airport << std::endl;
+        std::cout << "------------RESULT NUMBER: " << result_num << "------------" << std::endl;
+        //std::cout << "key: " << it->first << std::endl;
+        std::cout << "airline name: " << it->second.airline_name << std::endl;
+        std::cout << "flight date: " << it->second.flight_date << std::endl;
+        std::cout << "departure airport name: " << it->second.departure_data.airport << std::endl;
+        std::cout << "arrival airport name: " << it->second.arrival_data.airport << std::endl;
+        result_num++;
     }
 }
 
 void searchByAirport(std::string airport_input) {
     auto range = airport_multimap.equal_range(airport_input);
+    int result_num = 1;
     for(auto it = range.first; it != range.second; it++) {
-        std::cout << it->first << " " << it->second.departure_data.type << std::endl;
+        std::cout << "------------RESULT NUMBER: " << result_num << "------------" << std::endl;
+        //std::cout << "key: " << it->first << std::endl;
+        std::cout << "airline name: " << it->second.airline_name << std::endl;
+        std::cout << "flight date: " << it->second.flight_date << std::endl;
+        std::cout << "departure airport name: " << it->second.departure_data.airport << std::endl;
+        std::cout << "arrival airport name: " << it->second.arrival_data.airport << std::endl;
+        result_num++;
     }
 }

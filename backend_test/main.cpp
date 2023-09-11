@@ -2,31 +2,6 @@
 #include "trie.h"
 
 int main() {
-    /* Trie* test = new Trie();
-    
-    test->insert("apple");
-    test->insert("apricot");
-    test->insert("artichoke");
-    test->insert("ant");
-    test->insert("airplane");
-    test->insert("almond");
-    test->insert("armadillo");
-    test->insert("alligator");
-    test->insert("asparagus");
-
-    std::string word;
-    std::cout << "Enter word to autocomplete: ";
-    std::cin >> word;
-    test->autocomplete(word);
-
-    //print out vector of autocomplete words
-    std::vector<std::string> vec = test->getAutocompleteWords();
-    for(std::vector<std::string>::iterator it = vec.begin(); it != vec.end(); it++) {
-        std::cout << *it << std::endl;
-    }
-
-    delete test;  */
-
     std::string jsonFile = "../store/all_data.json";
     Json::Value jsonData = readJsonFile(jsonFile);
 
@@ -43,14 +18,30 @@ int main() {
     
     //print out vector of autocomplete words
     std::vector<std::string> vec = word_trie.getAutocompleteWords();
+    int index = 0;
+    std::cout << "-----------Autocompleted results-----------\n";
     for(std::vector<std::string>::iterator it = vec.begin(); it != vec.end(); it++) {
-        std::cout << *it << std::endl;
+        std::cout << index << ". " << *it << std::endl;
+        index++;
+        //searchByAirline(*it);
+        //searchByAirport(*it);
+    }
+
+    int intInput;
+    std::cout << "Which # result?: ";
+    std::cin >> intInput;
+    if(intInput < vec.size() && intInput >= 0) {
+        searchByAirline(vec[intInput]);
+        searchByAirport(vec[intInput]);
+    } else {
+        std::cout << "invalid input\n";
     }
 
     //printUmm(airport_multimap);
     //printUmm(airline_multimap);
     //searchByAirline("SAS");
     //searchByAirport("Sydney Kingsford Smith Airport");
+    //searchByAirport("Mc Carran International");
 
     return 0;
 }
