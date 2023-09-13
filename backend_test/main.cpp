@@ -12,7 +12,7 @@ int main() {
     std::cout << "load took " << wall_clock.count() << " seconds" << std::endl;
     
     std::string input;
-    std::cout << "Enter word to autocomplete: ";
+    std::cout << "Enter airline or airport to search... ";
     std::getline(std::cin, input);
     word_trie.autocomplete(transformString(input));
     
